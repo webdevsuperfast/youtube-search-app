@@ -1,29 +1,8 @@
 # youtube-search-app
 
-## Project setup
-```
-npm install
-```
+This repository contains the files for my tutorial [Create a Simple YouTube Search App with Vue.js](https://www.log2e.com/2019/02/create-a-simple-youtube-search-app-with-vue-js/).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Please note that you have to replace 'YOUR_API_KEY' in the src/App.vue component with a valid YouTube API key.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Author
+Stefan Schmalhaus
