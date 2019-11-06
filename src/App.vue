@@ -14,7 +14,7 @@
 import Header from './components/layout/Header';
 import SearchForm from './components/SearchForm';
 import SearchResults from './components/SearchResults';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: 'app',
@@ -44,12 +44,21 @@ export default {
     },
 
     getData(apiUrl) {
-      axios
-        .get(apiUrl, { crossdomain: true })
-        .then(res => {
-          this.videos = res.data.relatedItems;
+      // axios
+      //   .get(apiUrl, { crossdomain: true })
+      //   .then(res => {
+      //     this.videos = res.data.relatedItems;
+      //   })
+      //   .catch(error => console.log(error));
+      fetch(apiUrl, {mode: 'cors'})
+        .then(
+          function(response) {
+            this.videos = response.data.relatedItems
+          }
+        )
+        .catch(function(e){
+          console.log(e)
         })
-        .catch(error => console.log(error));
     }
   }
 };
