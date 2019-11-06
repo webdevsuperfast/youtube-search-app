@@ -7,13 +7,6 @@
       v-bind:videos="videos"
       v-bind:reformattedSearchString="reformattedSearchString"
     />
-    <Pagination
-      v-if="videos.length > 0"
-      v-bind:prevPageToken="api.prevPageToken"
-      v-bind:nextPageToken="api.nextPageToken"
-      v-on:prev-page="prevPage"
-      v-on:next-page="nextPage"
-    />
   </div>
 </template>
 
@@ -21,7 +14,6 @@
 import Header from './components/layout/Header';
 import SearchForm from './components/SearchForm';
 import SearchResults from './components/SearchResults';
-import Pagination from './components/Pagination';
 import axios from 'axios';
 
 export default {
@@ -29,23 +21,16 @@ export default {
   components: {
     Header,
     SearchForm,
-    SearchResults,
-    Pagination
+    SearchResults
   },
   data() {
     return {
       videos: [],
       reformattedSearchString: '',
       api: {
-        baseUrl: 'https://www.googleapis.com/youtube/v3/search?',
-        part: 'snippet',
-        type: 'video',
-        order: 'viewCount',
-        maxResults: 12,
-        q: '',
-        key: 'YOUR_API_KEY',
-        prevPageToken: '',
-        nextPageToken: ''
+        baseUrl: 'http://newpipe-rest.herokuapp.com/api/v1/search?',
+        id: '0',
+        q: ''
       }
     };
   },
@@ -53,30 +38,16 @@ export default {
     search(searchParams) {
       this.reformattedSearchString = searchParams.join(' ');
       this.api.q = searchParams.join('+');
-      const { baseUrl, part, type, order, maxResults, q, key } = this.api;
-      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${key}`;
-      this.getData(apiUrl);
-    },
-
-    prevPage() {
-      const { baseUrl, part, type, order, maxResults, q, key, prevPageToken } = this.api;
-      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${key}&pageToken=${prevPageToken}`;
-      this.getData(apiUrl);
-    },
-
-    nextPage() {
-      const { baseUrl, part, type, order, maxResults, q, key, nextPageToken } = this.api;
-      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&q=${q}&maxResults=${maxResults}&key=${key}&pageToken=${nextPageToken}`;
+      const { baseUrl, id, q } = this.api;
+      const apiUrl = `${baseUrl}serviceId=${id}&searchString=${q}`;
       this.getData(apiUrl);
     },
 
     getData(apiUrl) {
       axios
-        .get(apiUrl)
+        .get(apiUrl, { crossdomain: true })
         .then(res => {
-          this.videos = res.data.items;
-          this.api.prevPageToken = res.data.prevPageToken;
-          this.api.nextPageToken = res.data.nextPageToken;
+          this.videos = res.data.relatedItems;
         })
         .catch(error => console.log(error));
     }

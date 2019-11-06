@@ -3,15 +3,14 @@
     <div class="card-body">
       <h5 class="card-title">
         <a
-          :href="'https://www.youtube.com/watch?v=' + video.id.videoId"
+          :href="video.url"
           class="card-link"
           target="_blank"
-        >{{ video.snippet.title }}</a>
+        >{{ video.name }}</a>
       </h5>
       <h6
         class="card-subtitle mb-2 text-muted"
-      >{{ video.snippet.channelTitle }} | {{ video.snippet.publishedAt | formatDate }}</h6>
-      <p class="card-text">{{ video.snippet.description }}</p>
+      >{{ video.uploaderName }} | {{ video.uploadDate }}</h6>
     </div>
   </div>
 </template>

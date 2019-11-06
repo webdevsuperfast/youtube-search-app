@@ -25,12 +25,12 @@
     </div>
 
     <div class="card-columns" v-if="displayMode === 'grid'">
-      <div class="card" v-bind:key="video.id.videoId" v-for="video in videos">
+      <div class="card" :key="index" v-for="(video, index) in videos">
         <VideoGridItem v-bind:video="video"/>
       </div>
     </div>
     <div v-else>
-      <div class="card mb-2" v-bind:key="video.id.videoId" v-for="video in videos">
+      <div class="card mb-2" :key="index" v-for="(video, index) in videos">
         <VideoListItem v-bind:video="video"/>
       </div>
     </div>
