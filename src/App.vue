@@ -28,7 +28,7 @@ export default {
       videos: [],
       reformattedSearchString: '',
       api: {
-        baseUrl: 'http://newpipe-rest.herokuapp.com/api/v1/search?',
+        baseUrl: 'https://newpipe-rest.herokuapp.com/api/v1/search?',
         id: '0',
         q: ''
       }
