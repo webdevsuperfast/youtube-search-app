@@ -11,7 +11,7 @@
         >
         <div class="input-group-append">
           <button @click="parseSearchString" class="btn btn-outline-secondary" type="button">
-            <i class="fas fa-search"></i>
+            <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
           </button>
         </div>
       </div>

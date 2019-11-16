@@ -11,7 +11,7 @@
           class="btn btn-outline-secondary"
           v-bind:class="{ active: displayMode === 'grid' }"
         >
-          <i class="fas fa-th"></i>
+          <font-awesome-icon :icon="['fas', 'th']"></font-awesome-icon>
         </button>
         <button
           @click="changeDisplayMode('list')"
@@ -19,7 +19,7 @@
           class="btn btn-outline-secondary"
           v-bind:class="{ active: displayMode === 'list' }"
         >
-          <i class="fas fa-list"></i>
+          <font-awesome-icon :icon="['fas', 'list']"></font-awesome-icon>
         </button>
       </div>
     </div>

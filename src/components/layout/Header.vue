@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-5">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <i class="fab fa-youtube fa-2x"></i>
+          <font-awesome-icon :icon="['fab', 'youtube']" size="2x"></font-awesome-icon>
           <span class="ml-3">YouTube Search</span>
         </a>        
       </div>
