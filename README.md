@@ -1,5 +1,8 @@
-# youtube-search-app
+# YouTube Search App
 
-This repository contains the files for my tutorial [Create a Simple YouTube Search App with Vue.js](https://www.log2e.com/2019/02/create-a-simple-youtube-search-app-with-vue-js/).
+This is a fork of [YouTube Search App](https://github.com/log2e/youtube-search-app) but using [NewPipe REST API](https://github.com/yausername/NewPipeREST) instead of using YouTube API.
 
-Please note that you have to replace 'YOUR_API_KEY' in the src/App.vue component with a valid YouTube API key.
+## Credits
+
+* [YouTube Search App](https://github.com/log2e/youtube-search-app)
+* [NewPipe REST API](https://github.com/yausername/NewPipeREST)
